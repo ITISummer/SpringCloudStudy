@@ -1,0 +1,19 @@
+server:
+  port: 81
+  
+# 断路器 - cloud 中做服务熔断，服务降级等
+# 简单来说就是解决服务长时间掉线等问题
+# hystrix 是一个用于处理分布式系统的延迟和容错的开源库，在分布式系统里，
+# 许多依赖不可避免地回调用失败，比如超时，异常等，Hystrix 能够保证在一个依赖出问题的情况下
+#不会导致整体服务失败，避免级联故障，以提高分布式系统的弹性。
+feign: 
+  hystrix: 
+    enabled: true
+
+
+
+eureka:
+  client:
+    register-with-eureka: false
+    service-url: 
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/  
